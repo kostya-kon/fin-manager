@@ -1,0 +1,2 @@
+# fin-manger
+Finance manager
