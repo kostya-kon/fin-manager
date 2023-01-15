@@ -23,3 +23,4 @@ Env option below required.
 DATABASE_SYNCHRONIZE=true
 ```
 
+## [Api Docs](https://kostya-kon.github.io/fin-manager/)
