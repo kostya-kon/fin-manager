@@ -1,0 +1,630 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/category": {
+      "post": {
+        "operationId": "CategoryController_create",
+        "summary": "Create category",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateCategoryDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Success" } },
+        "tags": ["Category"]
+      },
+      "get": {
+        "operationId": "CategoryController_findAll",
+        "summary": "Get all categories",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CategoryData" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Category"]
+      }
+    },
+    "/category/{id}": {
+      "get": {
+        "operationId": "CategoryController_findOne",
+        "summary": "Get category by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 1,
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CategoryData" }
+              }
+            }
+          },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Category"]
+      },
+      "patch": {
+        "operationId": "CategoryController_update",
+        "summary": "Update category",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateCategoryDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Category"]
+      },
+      "delete": {
+        "operationId": "CategoryController_remove",
+        "summary": "Delete category",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Category"]
+      }
+    },
+    "/bank": {
+      "post": {
+        "operationId": "BankController_create",
+        "summary": "Create bank",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateBankDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Success" } },
+        "tags": ["Bank"]
+      },
+      "get": {
+        "operationId": "BankController_findAll",
+        "summary": "Get all banks",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/BankData" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Bank"]
+      }
+    },
+    "/bank/{id}": {
+      "get": {
+        "operationId": "BankController_findOne",
+        "summary": "Get bank by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 1,
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BankData" }
+              }
+            }
+          },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Bank"]
+      },
+      "patch": {
+        "operationId": "BankController_update",
+        "summary": "Update bank",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateBankDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Bank"]
+      },
+      "delete": {
+        "operationId": "BankController_remove",
+        "summary": "Delete category",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Bank"]
+      }
+    },
+    "/transaction": {
+      "post": {
+        "operationId": "TransactionController_create",
+        "summary": "Create transactions",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateTransactionDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "400": { "description": "Bad Request data" }
+        },
+        "tags": ["Transaction"]
+      },
+      "get": {
+        "operationId": "TransactionController_findAll",
+        "summary": "Get transactions",
+        "parameters": [
+          {
+            "name": "page",
+            "required": true,
+            "in": "path",
+            "example": 1,
+            "schema": { "type": "number" }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "path",
+            "example": 15,
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/TransactionData" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Transaction"]
+      }
+    },
+    "/transaction/{id}": {
+      "delete": {
+        "operationId": "TransactionController_remove",
+        "summary": "Delete transactions",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not found" }
+        },
+        "tags": ["Transaction"]
+      }
+    },
+    "/webhook": {
+      "post": {
+        "operationId": "WebhookController_create",
+        "summary": "Create webhook",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CreateWebhookDto" }
+            }
+          }
+        },
+        "responses": { "200": { "description": "Success" } },
+        "tags": ["Webhook"]
+      },
+      "get": {
+        "operationId": "WebhookController_findAll",
+        "summary": "Get all webhooks",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/WebhookData" }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Webhook"]
+      }
+    },
+    "/webhook/{id}": {
+      "get": {
+        "operationId": "WebhookController_findOne",
+        "summary": "Get webhook by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "example": 1,
+            "schema": { "type": "number" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/WebhookData" }
+              }
+            }
+          },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Webhook"]
+      },
+      "patch": {
+        "operationId": "WebhookController_update",
+        "summary": "Update webhook",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UpdateWebhookDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Webhook"]
+      },
+      "delete": {
+        "operationId": "WebhookController_remove",
+        "summary": "Delete webhook",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Success" },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Webhook"]
+      }
+    },
+    "/statistic": {
+      "post": {
+        "operationId": "StatisticController_getStats",
+        "summary": "Get statistics",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StatisticDto" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "categoryname": { "type": "number" } }
+                }
+              }
+            }
+          },
+          "404": { "description": "Id not was not found" }
+        },
+        "tags": ["Statistic"]
+      }
+    }
+  },
+  "info": {
+    "title": "FinManager",
+    "description": "Finanace Manager application by Kostya",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateCategoryDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the category",
+            "example": "products"
+          }
+        }
+      },
+      "CategoryData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id of the category",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the category",
+            "example": "products"
+          }
+        },
+        "required": ["id", "name"]
+      },
+      "UpdateCategoryDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the category",
+            "example": "products"
+          }
+        }
+      },
+      "CreateBankDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of bank",
+            "example": "MegaBank"
+          },
+          "balance": {
+            "type": "number",
+            "description": "Balance in bank",
+            "example": 2500
+          }
+        }
+      },
+      "BankData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id of the bank",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of bank",
+            "example": "MegaBank"
+          },
+          "balance": {
+            "type": "number",
+            "description": "Balance in bank",
+            "example": 2500
+          }
+        },
+        "required": ["id", "name", "balance"]
+      },
+      "UpdateBankDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of bank",
+            "example": "MegaBank"
+          },
+          "balance": {
+            "type": "number",
+            "description": "Balance in bank",
+            "example": 2500
+          }
+        }
+      },
+      "CreateTransactionDto": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Amount of payment",
+            "example": -500
+          },
+          "categoryIds": {
+            "description": "Id of categories",
+            "example": [1, 2],
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "bankId": {
+            "type": "number",
+            "description": "Id of bank",
+            "example": 1
+          }
+        }
+      },
+      "TransactionData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id of the webhook",
+            "example": 1
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount of payment",
+            "example": -500
+          },
+          "categoryIds": {
+            "description": "Id of categories",
+            "example": [1, 2],
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "bankId": {
+            "type": "number",
+            "description": "Id of bank",
+            "example": 1
+          }
+        },
+        "required": ["id", "amount", "categoryIds", "bankId"]
+      },
+      "CreateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Webhook URL",
+            "example": "https://webhook.site/5c6e66fb-e7d5-470f-b4e6-bf4fb7818d8d"
+          }
+        }
+      },
+      "WebhookData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id of the webhook",
+            "example": 1
+          },
+          "url": {
+            "type": "string",
+            "description": "Webhook URL",
+            "example": "https://webhook.site/5c6e66fb-e7d5-470f-b4e6-bf4fb7818d8d"
+          }
+        },
+        "required": ["id", "url"]
+      },
+      "UpdateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Webhook URL",
+            "example": "https://webhook.site/5c6e66fb-e7d5-470f-b4e6-bf4fb7818d8d"
+          }
+        }
+      },
+      "StatisticDto": {
+        "type": "object",
+        "properties": {
+          "categoryIds": {
+            "description": "Id of categories",
+            "example": [1, 2],
+            "type": "array",
+            "items": { "type": "number" }
+          },
+          "fromPeriod": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Date from",
+            "example": "2023-01-14T10:24:00.000Z"
+          },
+          "toPeriod": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Date to",
+            "example": "2023-01-14T20:24:00.000Z"
+          }
+        },
+        "required": ["categoryIds", "fromPeriod", "toPeriod"]
+      }
+    }
+  }
+}
