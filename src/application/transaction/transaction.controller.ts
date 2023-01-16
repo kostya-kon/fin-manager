@@ -12,7 +12,7 @@ import {
 import { TransactionService } from './transaction.service';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { TransactionData } from './classes/transaction-data.class';
+import { GetTransactionData } from './classes/get-transaction-data.class';
 
 @ApiTags('Transaction')
 @Controller('transaction')
@@ -37,7 +37,7 @@ export class TransactionController {
   @ApiOperation({ summary: 'Get transactions' })
   @ApiResponse({
     status: HttpStatus.OK,
-    type: [TransactionData],
+    type: GetTransactionData,
     description: 'Success',
   })
   @HttpCode(HttpStatus.OK)
@@ -55,8 +55,9 @@ export class TransactionController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not found',
+    description: 'Transaction id not was not found',
   })
+  @ApiParam({ name: 'id', type: Number, example: 1, required: true })
   @HttpCode(HttpStatus.OK)
   @Delete(':id')
   remove(@Param('id') id: string) {

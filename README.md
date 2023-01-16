@@ -18,6 +18,16 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Running Docker
+
+```bash
+# for local development
+$ docker-compose up -d
+
+# build image of app
+$ docker build -t <name> .
+```
+
 Env option below required.
 ```
 DATABASE_SYNCHRONIZE=true

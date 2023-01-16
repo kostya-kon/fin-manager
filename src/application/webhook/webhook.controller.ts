@@ -51,7 +51,7 @@ export class WebhookController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Webhook id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @ApiParam({ name: 'id', type: Number, example: 1, required: true })
@@ -67,7 +67,7 @@ export class WebhookController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Webhook id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @Patch(':id')
@@ -82,7 +82,7 @@ export class WebhookController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Webhook id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @Delete(':id')

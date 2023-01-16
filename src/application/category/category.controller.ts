@@ -51,7 +51,7 @@ export class CategoryController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Category id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @ApiParam({ name: 'id', type: Number, example: 1, required: true })
@@ -67,7 +67,7 @@ export class CategoryController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Category id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @Patch(':id')
@@ -85,7 +85,7 @@ export class CategoryController {
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
-    description: 'Id not was not found',
+    description: 'Category id not was not found',
   })
   @HttpCode(HttpStatus.OK)
   @Delete(':id')

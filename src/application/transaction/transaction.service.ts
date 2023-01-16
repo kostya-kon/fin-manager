@@ -97,7 +97,7 @@ export class TransactionService {
     return transaction;
   }
 
-  findAll(page = 1, limit = 15) {
+  async findAll(page = 1, limit = 15) {
     const options: any = {
       offset: page <= 0 ? 0 : (page - 1) * limit,
       limit,
@@ -118,7 +118,13 @@ export class TransactionService {
       ],
       attributes: { exclude: ['createdAt', 'updatedAt', 'bankId'] },
     };
-    return this.transactionModel.findAll(options);
+    const { rows, count } = await this.transactionModel.findAndCountAll(
+      options,
+    );
+    return {
+      all_count: count,
+      transactions: rows,
+    };
   }
 
   async remove(id: number) {
